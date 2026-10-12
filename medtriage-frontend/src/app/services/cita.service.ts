@@ -2,13 +2,15 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CitaMedica, CrearCitaPayload } from '../models/cita.model';
+import { environment } from '../../enviroment/enviroment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CitaService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:8080/api/v1/citas';
+  private apiUrl = `${environment.apiUrl}/citas`;
+
 
   getCitas(): Observable<CitaMedica[]> {
     return this.http.get<CitaMedica[]>(this.apiUrl);

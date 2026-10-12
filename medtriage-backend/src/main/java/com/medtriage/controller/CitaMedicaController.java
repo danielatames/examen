@@ -20,7 +20,7 @@ import com.medtriage.service.CitaMedicaService;
 
 @RestController
 @RequestMapping("/api/v1/citas")
-@CrossOrigin(origins = "http:/7localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 
 public class CitaMedicaController {
 
