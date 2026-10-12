@@ -3,10 +3,14 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
+standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  template: `
+    <h1>MedTriage Express</h1>
+    <hr />
+    <router-outlet></router-outlet>
+  `
 })
-export class App {
-  protected readonly title = signal('medtriage-frontend');
+export class AppComponent {
+  
 }

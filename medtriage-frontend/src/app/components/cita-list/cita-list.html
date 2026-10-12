@@ -1,0 +1,49 @@
+<h2>Gestión de Triaje y Citas Médicas</h2>
+<div style="margin-bottom: 20px;">
+  <label><b>Filtrar por Prioridad: </b></label>
+  <select (change)="cambiarFiltro($event)">
+    <option value="TODAS">Todas</option>
+    <option value="ALTA">Alta</option>
+    <option value="MEDIA">Media</option>
+    <option value="BAJA">Baja</option>
+  </select>
+</div>
+
+<table border="1" cellpadding="8" cellspacing="0" style="width: 100%; border-collapse: collapse;">
+  <thead style="background-color: #f2f2f2;">
+    <tr>
+      <th>Código</th>
+      <th>Paciente</th>
+      <th>Doctor</th>
+      <th>Prioridad</th>
+      <th>Estado</th>
+      <th>Monto</th>
+      <th>Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (cita of citasFiltradas(); track cita.id) {
+      <tr>
+        <td>{{ cita.codigoCita }}</td>
+        <td>{{ cita.nombrePaciente }}</td>
+        <td>{{ cita.nombreDoctor }}</td>
+        <td><b>{{ cita.nivelPrioridad }}</b></td>
+        <td>{{ cita.estado }}</td>
+        <td>₡{{ cita.montoConsulta }}</td>
+        <td>
+          @if (cita.estado === 'PENDIENTE') {
+            <button (click)="cambiarEstado(cita.id, 'EN_ATENCION')">Atender</button>
+          } @else if (cita.estado === 'EN_ATENCION') {
+            <button (click)="cambiarEstado(cita.id, 'ATENDIDA')">Finalizar</button>
+          } @else {
+            <span>-</span>
+          }
+        </td>
+      </tr>
+    } @empty {
+      <tr>
+        <td colspan="7" style="text-align: center;">No hay citas registradas.</td>
+      </tr>
+    }
+  </tbody>
+</table>

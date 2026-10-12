@@ -1,0 +1,38 @@
+<h2>Registrar Nueva Cita de Triaje</h2>
+
+<form (ngSubmit)="guardarCita()" style="max-width: 500px; display: flex; flex-direction: column; gap: 15px;">
+  
+  <div>
+    <label>ID Paciente:</label><br>
+    <input type="number" [(ngModel)]="nuevaCita.pacienteId" name="pacienteId" required style="width: 100%;">
+  </div>
+
+  <div>
+    <label>ID Doctor:</label><br>
+    <input type="number" [(ngModel)]="nuevaCita.doctorId" name="doctorId" required style="width: 100%;">
+  </div>
+
+  <div>
+    <label>Nivel de Prioridad:</label><br>
+    <select [(ngModel)]="nuevaCita.nivelPrioridad" name="nivelPrioridad" required style="width: 100%;">
+      <option value="ALTA">Alta</option>
+      <option value="MEDIA">Media</option>
+      <option value="BAJA">Baja</option>
+    </select>
+  </div>
+
+  <div>
+    <label>Motivo de Consulta:</label><br>
+    <textarea [(ngModel)]="nuevaCita.motivoConsulta" name="motivoConsulta" required style="width: 100%;"></textarea>
+  </div>
+
+  <div>
+    <label>Monto de Consulta (₡):</label><br>
+    <input type="number" [(ngModel)]="nuevaCita.montoConsulta" name="montoConsulta" required style="width: 100%;">
+  </div>
+
+  <button type="submit" style="background-color: #198754; color: white; padding: 10px; border: none; cursor: pointer;">
+    Guardar Cita
+  </button>
+
+</form>
