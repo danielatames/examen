@@ -37,8 +37,8 @@ class CitaMedicaServiceTest {
 
     @Test
     void crearCita_Exitoso() {
-        Long doctorId = 1L;
-        Long pacienteId = 1L;
+        Long doctorId = 3L;
+        Long pacienteId = 2L;
         CrearCitaDTO dto = new CrearCitaDTO(pacienteId, doctorId, "ALTA", "Dolor", new BigDecimal("10000.00"));
 
         Doctor doctor = new Doctor(doctorId, "Fabian Quesada", "Medicina", true);
