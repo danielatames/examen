@@ -1,4 +1,4 @@
-// Paciente.java
+
 package com.medtriage.model;
 
 import jakarta.persistence.*;
@@ -22,4 +22,6 @@ public class Paciente {
 
     @Column(nullable = false, length = 20)
     private String telefono;
+
+    
 }
