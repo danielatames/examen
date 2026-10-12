@@ -8,6 +8,7 @@ public class CrearCitaDTO {
     private String nivelPrioridad; 
     private String motivoConsulta;
     private BigDecimal montoConsulta;
+    
     public Long getPacienteId() {
         return pacienteId;
     }
